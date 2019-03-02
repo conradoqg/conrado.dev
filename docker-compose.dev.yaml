@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+
+  caddy:    
+    configs:
+      - source: CaddyfileDev
+        target: /etc/Caddyfile
+
+configs:
+  CaddyfileDev: 
+    file: ./config/Caddyfile.dev

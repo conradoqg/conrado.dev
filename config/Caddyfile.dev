@@ -1,0 +1,32 @@
+http://* {    
+    redir https://{host}{uri}
+}
+
+https://conrado.dev, 
+https://www.conrado.dev, 
+https://conradoqg.eti.br,
+https://www.conradoqg.eti.br {
+    tls self_signed
+    proxy / http://www.conradoqg.eti.br.s3-website-sa-east-1.amazonaws.com {
+        transparent        
+    }
+}
+
+https://porto.conrado.dev, 
+https://porto.conradoqg.eti.br {
+    tls self_signed
+    proxy / portainer:9000 {
+        transparent        
+    }
+}
+
+https://cvmfundexplorer.conrado.dev, 
+https://cvmfundexplorer.conradoqg.eti.br, 
+https://*.cvmfundexplorer.conrado.dev,  
+https://*.cvmfundexplorer.conradoqg.eti.br {
+    tls self_signed
+    proxy / cvmfundexplorer.conradoqg.eti.br:8080 {
+        transparent
+        websocket
+    }
+}

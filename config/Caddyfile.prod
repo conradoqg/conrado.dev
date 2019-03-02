@@ -1,0 +1,3 @@
+conrado.dev, conradoqg.eti.br {
+    redir www.conrado.dev{uri}
+}
