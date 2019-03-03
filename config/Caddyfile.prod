@@ -1,3 +1,31 @@
-conrado.dev, conradoqg.eti.br {
-    redir www.conrado.dev{uri}
+http://* {    
+    redir https://{host}{uri}
+}
+
+#https://conrado.dev, 
+#https://www.conrado.dev, 
+https://conradoqg.eti.br,
+https://www.conradoqg.eti.br  {        
+    proxy / http://www.conradoqg.eti.br.s3-website-sa-east-1.amazonaws.com {
+        transparent        
+    }
+}
+
+#https://porto.conrado.dev, 
+https://porto.conradoqg.eti.br {        
+    proxy / portainer:9000 {
+        transparent        
+    }
+}
+
+#https://cvmfundexplorer.conrado.dev, 
+#https://api.cvmfundexplorer.conrado.dev,  
+#https://pgadmin.cvmfundexplorer.conrado.dev,  
+https://cvmfundexplorer.conradoqg.eti.br, 
+https://api.cvmfundexplorer.conradoqg.eti.br, 
+https://pgadmin.cvmfundexplorer.conradoqg.eti.br {
+    proxy / cvmfundexplorer.conradoqg.eti.br:8080 {
+        transparent
+        websocket
+    }
 }

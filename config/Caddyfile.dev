@@ -22,8 +22,8 @@ https://porto.conradoqg.eti.br {
 
 https://cvmfundexplorer.conrado.dev, 
 https://cvmfundexplorer.conradoqg.eti.br, 
-https://*.cvmfundexplorer.conrado.dev,  
-https://*.cvmfundexplorer.conradoqg.eti.br {
+https://api.cvmfundexplorer.conrado.dev,  
+https://api.cvmfundexplorer.conradoqg.eti.br {
     tls self_signed
     proxy / cvmfundexplorer.conradoqg.eti.br:8080 {
         transparent

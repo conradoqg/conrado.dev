@@ -5,7 +5,15 @@ services:
   caddy:    
     configs:
       - source: CaddyfileProd
-        target: /etc/Caddyfile    
+        target: /etc/Caddyfile   
+
+  logdna:
+    image: logdna/logspout:latest
+    hostname: conrado.dev
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - LOGDNA_KEY=${LOGDNA_KEY}
 
 configs:
   CaddyfileProd: 
