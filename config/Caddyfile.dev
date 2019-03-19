@@ -22,6 +22,10 @@ https://porto.conradoqg.eti.br {
 
 https://cvmfundexplorer.conrado.dev, 
 https://cvmfundexplorer.conradoqg.eti.br, 
+https://meajudafi.com.br, 
+https://www.meajudafi.com.br, 
+https://api.meajudafi.com.br,  
+https://pgadmin.meajudafi.com.br,  
 https://api.cvmfundexplorer.conrado.dev,  
 https://api.cvmfundexplorer.conradoqg.eti.br {
     tls self_signed
