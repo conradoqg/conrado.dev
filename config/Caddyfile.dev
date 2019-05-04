@@ -1,21 +1,33 @@
 http://conrado.dev, 
-https://conrado.dev, 
 http://www.conrado.dev, 
-https://www.conrado.dev, 
 http://conradoqg.eti.br,
+http://www.conradoqg.eti.br  { 
+    proxy / http://www.conradoqg.eti.br.s3-website-sa-east-1.amazonaws.com {
+        transparent        
+        header_upstream Host "www.conradoqg.eti.br"
+    }
+}
+
+https://conrado.dev, 
+https://www.conrado.dev, 
 https://conradoqg.eti.br,
-http://www.conradoqg.eti.br,
 https://www.conradoqg.eti.br {
     tls self_signed
     proxy / http://www.conradoqg.eti.br.s3-website-sa-east-1.amazonaws.com {
         transparent        
+        header_upstream Host "www.conradoqg.eti.br"
     }
 }
 
 http://porto.conrado.dev, 
-https://porto.conrado.dev,
-http://porto.conradoqg.eti.br,
-https://porto.conradoqg.eti.br {
+http://porto.conradoqg.eti.br  { 
+    proxy / portainer:9000 {
+        transparent        
+    }
+}
+
+https://porto.conradoqg.eti.br,
+https://porto.conrado.dev {
     tls self_signed
     proxy / portainer:9000 {
         transparent        
@@ -23,16 +35,24 @@ https://porto.conradoqg.eti.br {
 }
 
 http://meajudafi.com.br, 
-https://meajudafi.com.br, 
 http://www.meajudafi.com.br, 
-https://www.meajudafi.com.br, 
 http://api.meajudafi.com.br,  
+http://pgadmin.meajudafi.com.br  {    
+    proxy / meajudafi.com.br:8080 {
+        transparent
+        websocket       
+        header_downstream Access-Control-Allow-Origin "*" 
+    }
+}
+
+https://meajudafi.com.br, 
+https://www.meajudafi.com.br, 
 https://api.meajudafi.com.br,  
-http://pgadmin.meajudafi.com.br,
 https://pgadmin.meajudafi.com.br {
     tls self_signed
     proxy / meajudafi.com.br:8080 {
         transparent
-        websocket        
+        websocket       
+        header_downstream Access-Control-Allow-Origin "*" 
     }
 }
