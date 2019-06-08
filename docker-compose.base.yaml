@@ -24,3 +24,8 @@ volumes:
     external: true
   certs:
     external: true
+
+networks:
+  default:
+    driver: overlay
+    attachable: true
