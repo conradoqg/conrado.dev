@@ -30,6 +30,10 @@ if [ $ACTION = "deploy" ]; then
             exit 1
         fi
     fi
+
+    echo "Settings"
+    echo "LOGDNA_KEY: $LOGDNA_KEY"    
+
     echo "Deploying $ENV environment stack"
 
     echo "Checking volumes"    
@@ -50,7 +54,9 @@ if [ $ACTION = "deploy" ]; then
     echo $LOGDNA_KEY
 
     export COMPOSE_CONVERT_WINDOWS_PATHS=1
-    docker stack deploy --compose-file docker-compose.base.yaml --compose-file docker-compose.${ENV}.yaml conradodev
+    env \
+        LOGDNA_KEY=$LOGDNA_KEY \
+        docker stack deploy --compose-file docker-compose.base.yaml --compose-file docker-compose.${ENV}.yaml conradodev
 elif [ $ACTION = "remove" ]; then
     docker stack rm conradodev
 fi
