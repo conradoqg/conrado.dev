@@ -31,14 +31,15 @@ https://porto.conrado.dev {
     tls self_signed
     proxy / portainer:9000 {
         transparent        
+        websocket
     }
 }
 
 http://meajudafi.com.br, 
 http://www.meajudafi.com.br, 
 http://api.meajudafi.com.br,  
-http://pgadmin.meajudafi.com.br  {    
-    proxy / meajudafi.com.br:8080 {
+http://pgadmin.meajudafi.com.br {    
+    proxy / meajudafi_nginx:80 {
         transparent
         websocket       
         header_downstream Access-Control-Allow-Origin "*" 
@@ -50,7 +51,7 @@ https://www.meajudafi.com.br,
 https://api.meajudafi.com.br,  
 https://pgadmin.meajudafi.com.br {
     tls self_signed
-    proxy / meajudafi.com.br:8080 {
+    proxy / meajudafi_nginx:80 {
         transparent
         websocket       
         header_downstream Access-Control-Allow-Origin "*" 

@@ -1,7 +1,8 @@
 http://porto.conrado.dev, 
 http://porto.conradoqg.eti.br {        
     proxy / portainer:9000 {
-        transparent        
+        transparent    
+        websocket    
         header_upstream X-Forwarded-Proto {>Cloudfront-Forwarded-Proto}
     }
 }
@@ -10,7 +11,7 @@ http://meajudafi.com.br,
 http://www.meajudafi.com.br, 
 http://api.meajudafi.com.br,  
 http://pgadmin.meajudafi.com.br {
-    proxy / meajudafi_caddy:80 {
+    proxy / meajudafi_nginx:80 {
         transparent
         header_upstream X-Forwarded-Proto {>Cloudfront-Forwarded-Proto}
         websocket
